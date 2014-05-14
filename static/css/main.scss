@@ -1,0 +1,30 @@
+$primary: #c87548;
+$text: #4C5246;
+$background: #fefefe;
+
+html{
+    font-size:62.5%;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.6rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    color: $text;
+    background: $background;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Pompiere', sans-serif;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 5.2rem;
+    color: $primary;
+    text-align: center;
+    border-bottom: 1px solid $primary;
+}
