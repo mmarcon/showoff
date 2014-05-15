@@ -49,7 +49,8 @@ app.get('/:repo', function(req, res){
         }
         var repo = {
             title: repoName,
-            body: marked(body)
+            body: marked(body),
+            repo: repoName
         };
         res.render('repo', repo);
     });

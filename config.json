@@ -4,6 +4,7 @@
         "node-keyring",
         "jhere",
         "node-bot",
-        "androidutils"
+        "androidutils",
+        "cloudeyes"
     ]
 }
