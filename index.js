@@ -1,7 +1,8 @@
 var request = require('request'),
     express = require('express'),
     marked = require('marked'),
-    sass =require('node-sass'),
+    sass = require('node-sass'),
+    highlight = require('highlight.js'),
     config = require('./config.json');
 
 marked.setOptions({
@@ -12,7 +13,10 @@ marked.setOptions({
     pedantic: false,
     sanitize: true,
     smartLists: true,
-    smartypants: false
+    smartypants: false,
+    highlight: function(code){
+        return highlight.highlightAuto(code).value;
+    }
 });
 
 var GITHUB = {
@@ -24,10 +28,10 @@ var cache = {};
 var app = express();
 app.engine('.html', require('ejs').__express);
 app.use(sass.middleware({
-      src: __dirname + '/static',
-      dest: __dirname + '/static',
-      debug: false,
-      outputStyle: 'compressed'
+    src: __dirname + '/static',
+    dest: __dirname + '/static',
+    debug: false,
+    outputStyle: 'compressed'
 }));
 app.use(express.static(__dirname + '/static'));
 app.set('views', __dirname + '/templates');
