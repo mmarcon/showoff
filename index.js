@@ -68,7 +68,8 @@ app.get('/:repo', function(req, res){
         var repo = {
             title: repoName,
             body: marked(body),
-            repo: repoName
+            repo: repoName,
+            user: config.user
         };
         res.render('repo', repo);
     });
