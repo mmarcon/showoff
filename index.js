@@ -5,8 +5,22 @@ var request = require('request'),
     highlight = require('highlight.js'),
     config = require('./config.json');
 
+var markedRenderer = new marked.Renderer();
+
+markedRenderer.image = function(href, title, altText){
+    var html = '';
+    html += '<div class="image-wrapper">';
+    html += '<img src="' + href + '" ';
+    if(title) {
+        html += 'title="' + title + '" ';
+    }
+    html += 'alt="' + altText + '"/>';
+    html += '</div>';
+    return html;
+};
+
 marked.setOptions({
-    renderer: new marked.Renderer(),
+    renderer: markedRenderer,
     gfm: true,
     tables: true,
     breaks: false,
