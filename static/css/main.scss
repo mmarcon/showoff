@@ -5,6 +5,11 @@ html{
 $primary: #222;
 $text: #666;
 $background: #fff;
+$code_background: #eee;
+$link_normal: #1e90ff;
+$link_visited: #4682b4;
+$link_hover: #00bfff;
+$link_active: $link_hover;
 
 @import '../highlight/solarized_dark';
 
@@ -25,9 +30,10 @@ body {
 
 pre {
     white-space: pre-wrap;
-    background: #eee;
+    background: $code_background;
     padding: 1rem;
     border-radius: 0.3rem;
+    border: 1px solid #ddd;
 }
 
 strong {
@@ -52,6 +58,26 @@ h1 {
 
     img {
         max-width: 100%;
+    }
+}
+
+a {
+    text-decoration: none;
+
+    &:link {
+        color: $link_normal;
+    }
+
+    &:visited {
+        color: $link_visited;
+    }
+
+    &:hover {
+        color: $link_hover;
+    }
+
+    &:active {
+        color: $link_active;
     }
 }
 

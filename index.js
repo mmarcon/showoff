@@ -52,7 +52,16 @@ app.set('views', __dirname + '/templates');
 app.set('view engine', 'html');
 
 app.get('/', function(req, res){
-    res.send('welcome');
+    var index = {
+        user: config.user,
+        repos: config.repositories.map(function(repo){
+            return {
+                name: repo,
+                url: '/' + repo
+            };
+        })
+    };
+    res.render('index', index);
 });
 
 app.get('/:repo', function(req, res){
